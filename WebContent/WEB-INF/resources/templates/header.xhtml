@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+
+	<nav class="navbar navbar-expand-lg" style="background-color: var(--color3); border-bottom-style: solid; border-color: var(--color1)"> 
+		<a class="navbar-brand" href="./index.xhtml">
+			<img src="./resources/bubblegum-logo.png" width="30" height="30" alt="" />
+		</a>
+		<a class="navbar-brand" href="./index.xhtml" style="color: var(--color1); font-size: 25px;">TError</a>
+	
+		<button class="navbar-toggler" type="button" data-toggle="collapse"
+			data-target="#navbarSupportedContent"
+			aria-controls="navbarSupportedContent" aria-expanded="false"
+			aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		
+		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+			<ul class="navbar-nav mr-auto">
+			<h:panelGroup rendered="#{helperBean.logedIn}">
+				<li class="nav-item">
+				<a class="nav-link text-muted" style="#{view.viewId == '/logs.xhtml' ? 'font-weight: bold;' : ''}" href="./logs.xhtml">All Logs</a></li>
+			</h:panelGroup>
+			<h:panelGroup rendered="#{helperBean.logedIn}">
+				<li class="nav-item">
+				<a class="nav-link text-muted" style="#{view.viewId == '/tasks.xhtml' ? 'font-weight: bold;' : ''}" href="./tasks.xhtml">All Tasks</a></li>
+			</h:panelGroup>
+			<h:panelGroup rendered="#{helperBean.logedIn}">
+				<li class="nav-item active">
+				<a class="nav-link text-muted" style="#{view.viewId == '/applications.xhtml' ? 'font-weight: bold;' : ''}" href="./applications.xhtml">All Applications</a></li>
+			</h:panelGroup>
+			</ul>
+		</div>
+		
+	
+		<h:panelGroup rendered="#{!helperBean.logedIn}">
+			<form class="form-inline my-2 my-lg-0" action="./signin.xhtml">
+				<button type="submit" class="btn" >Sign in</button>
+			</form>
+		</h:panelGroup> 
+		<h:panelGroup rendered="#{helperBean.logedIn}">
+			<h:form>
+				<h:commandButton class="btn" action="#{helperBean.logout}" value="Sign out">
+				</h:commandButton>
+			</h:form>
+		</h:panelGroup> 
+	</nav>
+
+</html>

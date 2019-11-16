@@ -1,0 +1,23 @@
+:root{
+	--color1: #222222;
+	--color2: #e9ecef;
+}
+
+.btn {
+	background-color: var(--color1);
+	color: white;
+	border: none;
+}
+.btn:hover {
+	background-color: var(--color2);
+	color: white;
+}
+
+.link{
+	color: var(--color1);
+	text-decoration: underline;
+}
+.link:hover {
+	color: var(--color2);
+	text-decoration: underline;
+}
